@@ -1,0 +1,8 @@
+generates:
+  src/generated/api.ts:
+    schema: 'src/graphql/blueauth.graphql'
+    documents: 'src/graphql/queries.graphql'
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-graphql-request"

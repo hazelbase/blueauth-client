@@ -1,0 +1,18 @@
+scalar JSON
+
+enum ActionResult {
+  LOGIN_STARTED
+  LOGIN_COMPLETED
+}
+
+type Query {
+  whoami: JSON
+}
+
+type Mutation {
+  registerOrStartEmailLogin(identity: JSON!): ActionResult!
+  startEmailLogin(identity: JSON!): Boolean!
+  register(identity: JSON!): JSON!
+  completeLogin(token: String!): String!
+  logout: Boolean!
+}
