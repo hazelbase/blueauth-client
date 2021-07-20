@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.3](https://github.com/kionin/blueauth-client/compare/v0.7.2...v0.7.3) (2021-07-20)
+
+
+### Features
+
+* adding redirectURL args ([0b16008](https://github.com/kionin/blueauth-client/commit/0b16008abbeeceea401dc8226e15193f4feb3d0f))
+
 ### 0.7.2 (2021-07-13)
 
 
