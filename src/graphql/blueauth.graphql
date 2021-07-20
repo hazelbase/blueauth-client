@@ -10,9 +10,8 @@ type Query {
 }
 
 type Mutation {
-  registerOrStartEmailLogin(identity: JSON!): ActionResult!
-  startEmailLogin(identity: JSON!): Boolean!
+  registerOrStartEmailLogin(identity: JSON!, redirectURL: String): ActionResult!
+  startEmailLogin(identity: JSON!, redirectURL: String): Boolean!
   register(identity: JSON!): JSON!
-  completeLogin(token: String!): String!
   logout: Boolean!
 }

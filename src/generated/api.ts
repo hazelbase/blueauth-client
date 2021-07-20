@@ -26,28 +26,24 @@ export type Mutation = {
   registerOrStartEmailLogin: ActionResult;
   startEmailLogin: Scalars['Boolean'];
   register: Scalars['JSON'];
-  completeLogin: Scalars['String'];
   logout: Scalars['Boolean'];
 };
 
 
 export type MutationRegisterOrStartEmailLoginArgs = {
   identity: Scalars['JSON'];
+  redirectURL?: Maybe<Scalars['String']>;
 };
 
 
 export type MutationStartEmailLoginArgs = {
   identity: Scalars['JSON'];
+  redirectURL?: Maybe<Scalars['String']>;
 };
 
 
 export type MutationRegisterArgs = {
   identity: Scalars['JSON'];
-};
-
-
-export type MutationCompleteLoginArgs = {
-  token: Scalars['String'];
 };
 
 export type Query = {
@@ -65,12 +61,13 @@ export type GetSelfQuery = (
 
 export type RegisterOrStartEmailLoginMutationVariables = Exact<{
   identity: Scalars['JSON'];
+  redirectURL?: Maybe<Scalars['String']>;
 }>;
 
 
 export type RegisterOrStartEmailLoginMutation = (
   { __typename?: 'Mutation' }
-  & Pick<Mutation, 'registerOrStartEmailLogin'>
+  & { result: Mutation['registerOrStartEmailLogin'] }
 );
 
 export type RegisterMutationVariables = Exact<{
@@ -80,17 +77,18 @@ export type RegisterMutationVariables = Exact<{
 
 export type RegisterMutation = (
   { __typename?: 'Mutation' }
-  & Pick<Mutation, 'register'>
+  & { result: Mutation['register'] }
 );
 
 export type StartEmailLoginMutationVariables = Exact<{
   identity: Scalars['JSON'];
+  redirectURL?: Maybe<Scalars['String']>;
 }>;
 
 
 export type StartEmailLoginMutation = (
   { __typename?: 'Mutation' }
-  & Pick<Mutation, 'startEmailLogin'>
+  & { result: Mutation['startEmailLogin'] }
 );
 
 export type LogoutMutationVariables = Exact<{ [key: string]: never; }>;
@@ -98,7 +96,7 @@ export type LogoutMutationVariables = Exact<{ [key: string]: never; }>;
 
 export type LogoutMutation = (
   { __typename?: 'Mutation' }
-  & Pick<Mutation, 'logout'>
+  & { result: Mutation['logout'] }
 );
 
 
@@ -108,23 +106,26 @@ export const GetSelfDocument = gql`
 }
     `;
 export const RegisterOrStartEmailLoginDocument = gql`
-    mutation registerOrStartEmailLogin($identity: JSON!) {
-  registerOrStartEmailLogin(identity: $identity)
+    mutation registerOrStartEmailLogin($identity: JSON!, $redirectURL: String) {
+  result: registerOrStartEmailLogin(
+    identity: $identity
+    redirectURL: $redirectURL
+  )
 }
     `;
 export const RegisterDocument = gql`
     mutation register($identity: JSON!) {
-  register(identity: $identity)
+  result: register(identity: $identity)
 }
     `;
 export const StartEmailLoginDocument = gql`
-    mutation startEmailLogin($identity: JSON!) {
-  startEmailLogin(identity: $identity)
+    mutation startEmailLogin($identity: JSON!, $redirectURL: String) {
+  result: startEmailLogin(identity: $identity, redirectURL: $redirectURL)
 }
     `;
 export const LogoutDocument = gql`
     mutation logout {
-  logout
+  result: logout
 }
     `;
 

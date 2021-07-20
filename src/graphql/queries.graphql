@@ -1,15 +1,15 @@
 query getSelf { whoami }
 
-mutation registerOrStartEmailLogin($identity: JSON!) {
- registerOrStartEmailLogin(identity: $identity)
+mutation registerOrStartEmailLogin($identity: JSON!, $redirectURL: String) {
+ result: registerOrStartEmailLogin(identity: $identity, redirectURL: $redirectURL)
 }
 
 mutation register($identity: JSON!) {
-  register(identity: $identity)
+  result: register(identity: $identity)
 }
 
-mutation startEmailLogin($identity: JSON!) {
-  startEmailLogin(identity: $identity)
+mutation startEmailLogin($identity: JSON!, $redirectURL: String) {
+  result: startEmailLogin(identity: $identity, redirectURL: $redirectURL)
 }
 
-mutation logout { logout }
+mutation logout { result: logout }
