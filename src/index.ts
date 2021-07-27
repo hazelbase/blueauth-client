@@ -11,6 +11,6 @@ export type Config = {
 };
 
 export default function blueauthClient(config?: Config): Sdk {
-  const grClient = new GraphQLClient(config?.url || '/api/auth', config?.graphqlClientOptions);
+  const grClient = new GraphQLClient(config?.url || '/api/blueauth', config?.graphqlClientOptions);
   return getSdk(grClient, config?.sdkFunctionWrapper);
 }
