@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.4](https://github.com/key-lab/blueauth-client/compare/v0.7.3...v0.7.4) (2021-07-28)
+
+
+### Features
+
+* changing default relative route to /api/blueauth ([70a15e8](https://github.com/key-lab/blueauth-client/commit/70a15e8514af364b4bc05e8e732c2fb3f6dde360))
+
 ### [0.7.3](https://github.com/key-lab/blueauth-client/compare/v0.7.2...v0.7.3) (2021-07-20)
 
 
