@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.8.0](https://github.com/key-lab/blueauth-client/compare/v0.7.4...v0.8.0) (2021-08-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* login based methods are no longer supported
+
+### Features
+
+* updating to match the new sign in/out language of blueauth 0.8.0 ([d149b14](https://github.com/key-lab/blueauth-client/commit/d149b147e0d6b70d98b92784c021bc657e4337ed))
+
 ### [0.7.4](https://github.com/key-lab/blueauth-client/compare/v0.7.3...v0.7.4) (2021-07-28)
 
 
