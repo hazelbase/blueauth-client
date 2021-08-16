@@ -16,27 +16,27 @@ export type Scalars = {
 };
 
 export enum ActionResult {
-  LoginStarted = 'LOGIN_STARTED',
-  LoginCompleted = 'LOGIN_COMPLETED'
+  SignInStarted = 'SIGN_IN_STARTED',
+  SignInCompleted = 'SIGN_IN_COMPLETED'
 }
 
 
 export type Mutation = {
   __typename?: 'Mutation';
-  registerOrStartEmailLogin: ActionResult;
-  startEmailLogin: Scalars['Boolean'];
+  registerOrStartEmailSignIn: ActionResult;
+  startEmailSignIn: Scalars['Boolean'];
   register: Scalars['JSON'];
-  logout: Scalars['Boolean'];
+  signOut: Scalars['Boolean'];
 };
 
 
-export type MutationRegisterOrStartEmailLoginArgs = {
+export type MutationRegisterOrStartEmailSignInArgs = {
   identity: Scalars['JSON'];
   redirectURL?: Maybe<Scalars['String']>;
 };
 
 
-export type MutationStartEmailLoginArgs = {
+export type MutationStartEmailSignInArgs = {
   identity: Scalars['JSON'];
   redirectURL?: Maybe<Scalars['String']>;
 };
@@ -59,15 +59,15 @@ export type GetSelfQuery = (
   & Pick<Query, 'whoami'>
 );
 
-export type RegisterOrStartEmailLoginMutationVariables = Exact<{
+export type RegisterOrStartEmailSignInMutationVariables = Exact<{
   identity: Scalars['JSON'];
   redirectURL?: Maybe<Scalars['String']>;
 }>;
 
 
-export type RegisterOrStartEmailLoginMutation = (
+export type RegisterOrStartEmailSignInMutation = (
   { __typename?: 'Mutation' }
-  & { result: Mutation['registerOrStartEmailLogin'] }
+  & { result: Mutation['registerOrStartEmailSignIn'] }
 );
 
 export type RegisterMutationVariables = Exact<{
@@ -80,23 +80,23 @@ export type RegisterMutation = (
   & { result: Mutation['register'] }
 );
 
-export type StartEmailLoginMutationVariables = Exact<{
+export type StartEmailSignInMutationVariables = Exact<{
   identity: Scalars['JSON'];
   redirectURL?: Maybe<Scalars['String']>;
 }>;
 
 
-export type StartEmailLoginMutation = (
+export type StartEmailSignInMutation = (
   { __typename?: 'Mutation' }
-  & { result: Mutation['startEmailLogin'] }
+  & { result: Mutation['startEmailSignIn'] }
 );
 
-export type LogoutMutationVariables = Exact<{ [key: string]: never; }>;
+export type SignOutMutationVariables = Exact<{ [key: string]: never; }>;
 
 
-export type LogoutMutation = (
+export type SignOutMutation = (
   { __typename?: 'Mutation' }
-  & { result: Mutation['logout'] }
+  & { result: Mutation['signOut'] }
 );
 
 
@@ -105,9 +105,9 @@ export const GetSelfDocument = gql`
   whoami
 }
     `;
-export const RegisterOrStartEmailLoginDocument = gql`
-    mutation registerOrStartEmailLogin($identity: JSON!, $redirectURL: String) {
-  result: registerOrStartEmailLogin(
+export const RegisterOrStartEmailSignInDocument = gql`
+    mutation registerOrStartEmailSignIn($identity: JSON!, $redirectURL: String) {
+  result: registerOrStartEmailSignIn(
     identity: $identity
     redirectURL: $redirectURL
   )
@@ -118,14 +118,14 @@ export const RegisterDocument = gql`
   result: register(identity: $identity)
 }
     `;
-export const StartEmailLoginDocument = gql`
-    mutation startEmailLogin($identity: JSON!, $redirectURL: String) {
-  result: startEmailLogin(identity: $identity, redirectURL: $redirectURL)
+export const StartEmailSignInDocument = gql`
+    mutation startEmailSignIn($identity: JSON!, $redirectURL: String) {
+  result: startEmailSignIn(identity: $identity, redirectURL: $redirectURL)
 }
     `;
-export const LogoutDocument = gql`
-    mutation logout {
-  result: logout
+export const SignOutDocument = gql`
+    mutation signOut {
+  result: signOut
 }
     `;
 
@@ -139,17 +139,17 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     getSelf(variables?: GetSelfQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetSelfQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetSelfQuery>(GetSelfDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getSelf');
     },
-    registerOrStartEmailLogin(variables: RegisterOrStartEmailLoginMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<RegisterOrStartEmailLoginMutation> {
-      return withWrapper((wrappedRequestHeaders) => client.request<RegisterOrStartEmailLoginMutation>(RegisterOrStartEmailLoginDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'registerOrStartEmailLogin');
+    registerOrStartEmailSignIn(variables: RegisterOrStartEmailSignInMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<RegisterOrStartEmailSignInMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<RegisterOrStartEmailSignInMutation>(RegisterOrStartEmailSignInDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'registerOrStartEmailSignIn');
     },
     register(variables: RegisterMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<RegisterMutation> {
       return withWrapper((wrappedRequestHeaders) => client.request<RegisterMutation>(RegisterDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'register');
     },
-    startEmailLogin(variables: StartEmailLoginMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<StartEmailLoginMutation> {
-      return withWrapper((wrappedRequestHeaders) => client.request<StartEmailLoginMutation>(StartEmailLoginDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'startEmailLogin');
+    startEmailSignIn(variables: StartEmailSignInMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<StartEmailSignInMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<StartEmailSignInMutation>(StartEmailSignInDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'startEmailSignIn');
     },
-    logout(variables?: LogoutMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<LogoutMutation> {
-      return withWrapper((wrappedRequestHeaders) => client.request<LogoutMutation>(LogoutDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'logout');
+    signOut(variables?: SignOutMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<SignOutMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<SignOutMutation>(SignOutDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'signOut');
     }
   };
 }
