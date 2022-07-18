@@ -31,12 +31,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/key-lab/blueauth-client.git"
+    "url": "https://github.com/hazelbase/blueauth-client.git"
   },
   "bugs": {
-    "url": "https://github.com/key-lab/blueauth-client/issues"
+    "url": "https://github.com/hazelbase/blueauth-client/issues"
   },
-  "homepage": "https://github.com/key-lab/blueauth-client#readme",
+  "homepage": "https://github.com/hazelbase/blueauth-client#readme",
   "files": [
     "dist/main",
     "dist/module",

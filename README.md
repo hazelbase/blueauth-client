@@ -2,7 +2,7 @@
 <p align="center">
    <br/>
    <a href="https://blueauth.io" target="_blank"><img width="150px" src="https://cdn.kacdn.org/file/kacdn1/blueauth/logo.png" /></a>
-   <h3 align="center"><a href="https://github.com/key-lab/blueauth">BlueAuth</a> Javascript Client</h3>
+   <h3 align="center"><a href="https://github.com/hazelbase/blueauth">BlueAuth</a> Javascript Client</h3>
 </p>
 
 <details open="open">
@@ -23,7 +23,7 @@ npm install --save blueauth-client
 
 # Description
 
-This is a javascript client for the [BlueAuth](https://github.com/key-lab/blueauth) GraphQL endpoint that is auto-generated from the schema.
+This is a javascript client for the [BlueAuth](https://github.com/hazelbase/blueauth) GraphQL endpoint that is auto-generated from the schema.
 
 # Quick Start
 
